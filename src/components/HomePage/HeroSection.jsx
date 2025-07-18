@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Dumbbell, ArrowRight } from 'lucide-react';
+import GetStartedForm from './GetStartedForm'; // Import the form component
 
 const HeroSection = () => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
   return (
     <section className="relative min-h-[500px] md:min-h-[650px] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -37,7 +40,10 @@ const HeroSection = () => {
             Stay strong, stay consistent, and track your progress effortlessly.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="bg-[#E50914] text-white px-6 py-3 rounded-full font-semibold hover:bg-red-700 transition transform hover:scale-105 flex items-center gap-2">
+            <button 
+              onClick={() => setIsFormOpen(true)}
+              className="bg-[#E50914] text-white px-6 py-3 rounded-full font-semibold hover:bg-red-700 transition transform hover:scale-105 flex items-center gap-2"
+            >
               <Dumbbell className="w-5 h-5" />
               Get Started
             </button>
@@ -47,6 +53,9 @@ const HeroSection = () => {
           </div>
         </div>
       </motion.div>
+
+      {/* Form Popup */}
+      <GetStartedForm isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
     </section>
   );
 };

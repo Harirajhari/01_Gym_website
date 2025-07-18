@@ -2,7 +2,7 @@ import React from 'react';
 import { Users, HeartPulse, Award, Dumbbell, Wifi, Home } from 'lucide-react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-
+import GetStartedForm from './GetStartedForm'; 
 
 const AboutUsSection = () => {
   // Animation controls for the stats section
